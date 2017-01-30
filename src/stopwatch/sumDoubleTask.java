@@ -1,13 +1,31 @@
 package stopwatch;
 
+/**
+ * Task for sum numbers to Double. Overwrite method run from Runnable do the
+ * task.
+ * 
+ * @author Chawakorn Suphepre
+ * @version 2017.01.17
+ *
+ */
 public class sumDoubleTask implements Runnable {
 	private int counter;
+	/** Final value for the array's size. */
 	static final int ARRAY_SIZE = 500000;
 
+	/**
+	 * Initialize a new sumDoubleTask.
+	 * 
+	 * @param count
+	 *            is the number of numbers to add into Double.
+	 */
 	public sumDoubleTask(int count) {
 		this.counter = count;
 	}
 
+	/**
+	 * overwrite method run to sum the numbers in Double.
+	 */
 	@Override
 	public void run() {
 		// create array of values to add, before we start the timer
@@ -24,6 +42,9 @@ public class sumDoubleTask implements Runnable {
 		System.out.println("sum = " + sum);
 	}
 
+	/**
+	 * overwrite method toString to return what this task do.
+	 */
 	@Override
 	public String toString() {
 		return String.format("Sum array of Double objects with count=%,d",

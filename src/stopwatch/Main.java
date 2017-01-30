@@ -1,6 +1,16 @@
 package stopwatch;
 
+/**
+ * Main for the task time counting.
+ * 
+ * @author Chawakorn Suphepre
+ * @version 2017.01.17
+ *
+ */
 public class Main {
+	/**
+	 * Run the program.
+	 */
 	public static void main(String[] args) {
 		TaskTimer timer = new TaskTimer();
 		timer.measureAndPrint(new AppendToStringTask(50000));
