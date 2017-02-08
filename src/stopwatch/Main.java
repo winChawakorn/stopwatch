@@ -16,8 +16,8 @@ public class Main {
 		timer.measureAndPrint(new AppendToStringTask(50000));
 		timer.measureAndPrint(new AppendToStringTask(100000));
 		timer.measureAndPrint(new AppendToStringBuilderTask(100000));
-		timer.measureAndPrint(new sumDoublePrimitiveTask(1000000000));
-		timer.measureAndPrint(new sumDoubleTask(1000000000));
-		timer.measureAndPrint(new sumBigDecimalTask(1000000000));
+		timer.measureAndPrint(new SumDoublePrimitiveTask(1000000000));
+		timer.measureAndPrint(new SumDoubleTask(1000000000));
+		timer.measureAndPrint(new SumBigDecimalTask(1000000000));
 	}
 }

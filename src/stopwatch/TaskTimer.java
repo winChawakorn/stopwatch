@@ -4,7 +4,7 @@ package stopwatch;
  * TaskTimer is the timer for counting time from the task.
  * 
  * @author Chawakorn Suphepre
- * @version 2017.01.30
+ * @version 2017.02.08
  *
  */
 public class TaskTimer {
@@ -26,10 +26,10 @@ public class TaskTimer {
 	 *            is the Runnable from the task.
 	 */
 	public void measureAndPrint(Runnable runner) {
-		System.out.println(runner.toString());
 		time.start();
 		runner.run();
 		time.stop();
+		System.out.println(runner.toString());
 		System.out.printf("Elapsed time %.6f sec\n\n", time.getElapsed());
 	}
 }

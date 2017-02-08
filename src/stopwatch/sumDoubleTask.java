@@ -5,13 +5,16 @@ package stopwatch;
  * task.
  * 
  * @author Chawakorn Suphepre
- * @version 2017.01.17
+ * @version 2017.02.08
  *
  */
-public class sumDoubleTask implements Runnable {
+public class SumDoubleTask implements Runnable {
 	private int counter;
 	/** Final value for the array's size. */
 	static final int ARRAY_SIZE = 500000;
+	// create array of values to add, before we start the timer
+	static Double[] values = new Double[ARRAY_SIZE];
+	static Double sum = new Double(0.0);
 
 	/**
 	 * Initialize a new sumDoubleTask.
@@ -19,7 +22,7 @@ public class sumDoubleTask implements Runnable {
 	 * @param count
 	 *            is the number of numbers to add into Double.
 	 */
-	public sumDoubleTask(int count) {
+	public SumDoubleTask(int count) {
 		this.counter = count;
 	}
 
@@ -28,18 +31,14 @@ public class sumDoubleTask implements Runnable {
 	 */
 	@Override
 	public void run() {
-		// create array of values to add, before we start the timer
-		Double[] values = new Double[ARRAY_SIZE];
 		for (int i = 0; i < ARRAY_SIZE; i++)
 			values[i] = new Double(i + 1);
-		Double sum = new Double(0.0);
 		// count = loop counter, i = array index
 		for (int count = 0, i = 0; count < counter; count++, i++) {
 			if (i >= values.length)
 				i = 0;
 			sum = sum + values[i];
 		}
-		System.out.println("sum = " + sum);
 	}
 
 	/**
@@ -48,7 +47,7 @@ public class sumDoubleTask implements Runnable {
 	@Override
 	public String toString() {
 		return String.format("Sum array of Double objects with count=%,d",
-				counter);
+				counter) + "\nsum = " + sum;
 	}
 
 }

@@ -5,11 +5,12 @@ package stopwatch;
  * task.
  * 
  * @author Chawakorn Suphepre
- * @version 2017.01.17
+ * @version 2017.02.08
  *
  */
 public class AppendToStringTask implements Runnable {
 	private int count;
+	String result = "";
 
 	/**
 	 * Initialize a new AppendToStringTask.
@@ -27,12 +28,10 @@ public class AppendToStringTask implements Runnable {
 	@Override
 	public void run() {
 		final char CHAR = 'a';
-		String result = "";
 		int k = 0;
 		while (k++ < count) {
 			result = result + CHAR;
 		}
-		System.out.println("final string length = " + result.length());
 	}
 
 	/**
@@ -40,6 +39,7 @@ public class AppendToStringTask implements Runnable {
 	 */
 	@Override
 	public String toString() {
-		return String.format("Append %,d chars to String", count);
+		return String.format("Append %,d chars to String\n", count)
+				+ ("final string length = " + result.length());
 	}
 }

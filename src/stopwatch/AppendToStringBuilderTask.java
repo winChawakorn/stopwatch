@@ -5,11 +5,13 @@ package stopwatch;
  * the task.
  * 
  * @author Chawakorn Suphepre
- * @version 2017.01.17
+ * @version 2017.02.08
  *
  */
 public class AppendToStringBuilderTask implements Runnable {
 	private int count;
+	static StringBuilder builder = new StringBuilder();
+	static String result;
 
 	/**
 	 * Initialize a new AppendToStringBuilderTask.
@@ -27,13 +29,11 @@ public class AppendToStringBuilderTask implements Runnable {
 	@Override
 	public void run() {
 		final char CHAR = 'a';
-		StringBuilder builder = new StringBuilder();
 		int k = 0;
 		while (k++ < count) {
 			builder = builder.append(CHAR);
 		}
-		String result = builder.toString();
-		System.out.println("final string length = " + result.length());
+		result = builder.toString();
 	}
 
 	/**
@@ -41,7 +41,8 @@ public class AppendToStringBuilderTask implements Runnable {
 	 */
 	@Override
 	public String toString() {
-		return String.format("Append %,d chars to StringBuilder", count);
+		return String.format("Append %,d chars to StringBuilder\n", count)
+				+ "final string length = " + result.length();
 	}
 
 }
